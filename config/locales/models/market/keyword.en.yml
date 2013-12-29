@@ -1,0 +1,16 @@
+---
+en:
+  active_record:
+    models:
+      market:
+        keyword: Keyword
+    attributes:
+      market:
+        keyword:
+          market_site: Market site
+          parent_id: Parent
+          name: Name
+    errors:
+      keyword: 
+  helpers:
+    keyword: 

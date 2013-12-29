@@ -1,0 +1,14 @@
+<% title \
+  [ @page.try(:title), 
+    @channel.title, 
+    Admin::Keystore.value_for('site_name')].join(' | ').sub(/^\s*\|/, '').strip %>
+<% meta_keywords \
+  [ @page.try(:keywords), 
+    @channel.title, 
+    Admin::Keystore.value_for('site_name')].join(' | ').sub(/^\s*\|/, '').strip %>
+<% meta_description \
+  [ @page.try(:description), 
+    @channel.title, 
+    Admin::Keystore.value_for('site_name')].join(' | ').sub(/^\s*\|/, '').strip %>
+
+<% content @page.present? ? @page.content : (@channel.default_url.blank? ? @channel.content : get_templete_content(@channel.default_url)) %>

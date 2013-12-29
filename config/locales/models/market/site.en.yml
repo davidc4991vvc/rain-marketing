@@ -1,0 +1,16 @@
+---
+en:
+  active_record:
+    models:
+      market:
+        site: Site
+    attributes:
+      market:
+        site:
+          name: Name
+          domain: Domain
+          online_date: Online date
+    errors:
+      site: 
+  helpers:
+    site: 

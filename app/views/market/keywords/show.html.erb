@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Market site:</strong>
+  <%= @market_keyword.market_site %>
+</p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @market_keyword.parent_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @market_keyword.name %>
+</p>
+
+<%= link_to 'Edit', edit_market_keyword_path(@market_keyword) %> |
+<%= link_to 'Back', market_keywords_path %>

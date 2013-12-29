@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @market_site.name %>
+</p>
+
+<p>
+  <strong>Domain:</strong>
+  <%= @market_site.domain %>
+</p>
+
+<p>
+  <strong>Online date:</strong>
+  <%= @market_site.online_date %>
+</p>
+
+<%= link_to 'Edit', edit_market_site_path(@market_site) %> |
+<%= link_to 'Back', market_sites_path %>
