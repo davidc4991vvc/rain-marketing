@@ -30,4 +30,17 @@ class UsersController < ApplicationController
       redirect_to users_path, :notice => "Can't delete yourself."
     end
   end
+
+  #choose site
+  def choose_site
+    @market_sites = Market::Site.where(user_id: current_user.id)
+
+    session[:market_site_id] = nil
+    if params[:id] =~ /^\d+$/
+      session[:market_site_id] = params[:id]
+      redirect_to market_site_path(session[:market_site_id])
+    else
+      #redirect_to '/choose_site', notice: "请选择网站"
+    end
+  end
 end

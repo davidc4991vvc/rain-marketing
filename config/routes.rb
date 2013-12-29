@@ -1,17 +1,14 @@
 RainCms::Application.routes.draw do
-  
+    
+  #routes for market ==============================
   namespace :market do
     resources :keywords
-  end
-
-  namespace :market do
     resources :sites
+
+    get "home/index"
   end
 
   #routes for admin ==============================
-  devise_for :users, :controllers => {:registrations => "registrations"}
-  resources :users
-  mount Ckeditor::Engine => '/ckeditor'
   namespace :admin do
     resources :pages
     resources :channels
@@ -27,6 +24,13 @@ RainCms::Application.routes.draw do
     get "templetes/destroy"
     get "templetes/update_cache"
   end
+
+  #routes for user ==============================
+  devise_for :users, :controllers => {:registrations => "registrations"}
+  resources :users
+  mount Ckeditor::Engine => '/ckeditor'
+  match 'choose_site', to: "users#choose_site", via: :get
+  
   #routes for front ==============================
   root :to => "welcome#index"
   #match '/:profession/:state_code/:dik/:classify_type/(:action(/:id))' => 

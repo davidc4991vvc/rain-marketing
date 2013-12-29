@@ -1,31 +1,56 @@
-<h1>Listing market_sites</h1>
+<%= page_header(t('market_sites.index.title'), {'添加页面' => new_market_site_path, '返回网站' => '/'}) %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Domain</th>
-      <th>Online date</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class='row'>
+  <div class='col-sm-12'>
+    <div class='box bordered-box blue-border' style='margin-bottom:0;'>
+      <div class='box-header blue-background'>
+        <div class='title'>Responsive table<%= session[:market_site_id] %></div>
+        <div class='actions'>
+          <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+          </a>
+          <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+          </a>
+        </div>
+      </div>
+      <div class='box-content box-no-padding'>
+        <div class='responsive-table'>
+          <div class='scrollable-area'>
 
-  <tbody>
-    <% @market_sites.each do |market_site| %>
-      <tr>
-        <td><%= market_site.name %></td>
-        <td><%= market_site.domain %></td>
-        <td><%= market_site.online_date %></td>
-        <td><%= link_to 'Show', market_site %></td>
-        <td><%= link_to 'Edit', edit_market_site_path(market_site) %></td>
-        <td><%= link_to 'Destroy', market_site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+            <!-- content of page -->
+            <table class='table' style='margin-bottom:0;'>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Domain</th>
+                  <th>Online date</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
 
-<br>
+              <tbody>
+                <% @market_sites.each do |market_site| %>
+                  <tr>
+                    <td><%= market_site.name %></td>
+                    <td><%= market_site.domain %></td>
+                    <td><%= market_site.online_date %></td>
+                    <td><%= link_to 'Show', market_site %></td>
+                    <td><%= link_to 'Edit', edit_market_site_path(market_site) %></td>
+                    <td><%= link_to 'Destroy', market_site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
 
-<%= link_to 'New Site', new_market_site_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr class='hr-double'>
+
+
+
+

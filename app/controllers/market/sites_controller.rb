@@ -25,6 +25,7 @@ class Market::SitesController < Market::ApplicationController
   # POST /market/sites.json
   def create
     @market_site = Market::Site.new(market_site_params)
+    @market_site.user_id = current_user.id
 
     respond_to do |format|
       if @market_site.save
@@ -69,6 +70,6 @@ class Market::SitesController < Market::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def market_site_params
-      params.require(:market_site).permit(:name, :domain, :online_date)
+      params.require(:market_site).permit(:user_id, :name, :domain, :online_date)
     end
 end

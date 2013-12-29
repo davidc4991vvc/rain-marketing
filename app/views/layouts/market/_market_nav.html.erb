@@ -1,0 +1,58 @@
+<div class='navigation'>
+  <div class='search'>
+    <form action='search_results.html' method='get'>
+      <div class='search-wrapper'>
+        <input value="" class="search-query form-control" placeholder="Search..." autocomplete="off" name="q" type="text" />
+        <button class='btn btn-link icon-search' name='button' type='submit'></button>
+      </div>
+    </form>
+  </div>
+  <ul class='nav nav-stacked'>
+    <li class='active'>
+      <a href="<%= market_site_path(@market_site) %>">
+        <i class='icon-dashboard'></i>
+        <span>控制面板</span>
+      </a>
+    </li>
+    <li class=''>
+      <a class="dropdown-collapse" href="#"><i class='icon-edit'></i>
+      <span>关键词营销</span>
+      <i class='icon-angle-down angle-down'></i>
+      </a>
+
+      <ul class='nav nav-stacked'>
+        <li class=''>
+          <a href='<%= new_market_keyword_path %>'>
+            <i class='icon-caret-right'></i>
+            <span>关键词采集</span>
+          </a>
+        </li>
+        <li class=''>
+          <a href='form_components.html'>
+            <i class='icon-caret-right'></i>
+            <span>Form components</span>
+          </a>
+        </li>
+        <li class=''>
+          <a href='validations.html'>
+            <i class='icon-caret-right'></i>
+            <span>Validations</span>
+          </a>
+        </li>
+        <li class=''>
+          <a href='wizard.html'>
+            <i class='icon-caret-right'></i>
+            <span>Wizard</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <li class=''>
+      <a href='buttons_and_icons.html'>
+        <i class='icon-star'></i>
+        <span>Buttons & Icons</span>
+      </a>
+    </li>
+  </ul>
+</div>

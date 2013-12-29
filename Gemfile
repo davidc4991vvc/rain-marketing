@@ -17,6 +17,8 @@ gem 'mysql2', '0.3.13'
 gem 'rolify'
 gem 'simple_form'
 gem 'acts-as-taggable-on'
+#to integrate flatty theme
+gem "compass-rails"
 
 # For linux
 # gem 'therubyracer', :platform=>:ruby
