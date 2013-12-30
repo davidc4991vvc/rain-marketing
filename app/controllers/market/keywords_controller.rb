@@ -28,6 +28,7 @@ class Market::KeywordsController < Market::ApplicationController
 
     respond_to do |format|
       if @market_keyword.save
+        KeywordExtendWorker.perform_async(@market_keyword.id, @market_keyword.name)
         format.html { redirect_to @market_keyword, notice: 'Keyword was successfully created.' }
         format.json { render action: 'show', status: :created, location: @market_keyword }
       else

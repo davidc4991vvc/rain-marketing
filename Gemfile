@@ -50,13 +50,14 @@ gem 'paperclip-qiniu'
 gem 'rails-i18n', '~> 4.0.0.pre' # For 4.0.x
 gem 'i18n_yaml_generator'
 
-#Queue
-#gem 'sidekiq'
-
 #Markdown syntax
 gem "nokogiri"
 gem "htmlentities"
 gem 'slodown'
+
+#Queue
+gem 'mechanize'
+gem 'sidekiq'
 
 #Send Mail
 gem 'mailgun'
