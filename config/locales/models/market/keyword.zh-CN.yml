@@ -1,0 +1,16 @@
+---
+zh-CN:
+  activerecord:
+    models:
+      market/keyword: 关键词
+    attributes:
+      market/keyword:
+        market_site: 网站
+        parent_id: 父级
+        name: 关键词
+        opt1: 选项一
+        opt2: 选项二
+    errors:
+      keyword: 
+  helpers:
+    keyword: 

@@ -4,7 +4,7 @@ class Market::KeywordsController < Market::ApplicationController
   # GET /market/keywords
   # GET /market/keywords.json
   def index
-    @market_keywords = Market::Keyword.all
+    @market_keywords = Market::Keyword.page(params[:page])
   end
 
   # GET /market/keywords/1

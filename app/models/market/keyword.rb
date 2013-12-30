@@ -5,4 +5,6 @@ class Market::Keyword < ActiveRecord::Base
                           dependent: :destroy
   belongs_to :parent, class_name: "Market::Keyword"
   attr_accessor :opt1, :opt2
+  self.per_page = 50
+  
 end

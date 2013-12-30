@@ -1,31 +1,25 @@
-<h1>Listing market_keywords</h1>
+<h1>关键词列表</h1>
 
-<table>
+<table class="table table-stripped">
   <thead>
     <tr>
-      <th>Market site</th>
-      <th>Parent</th>
-      <th>Name</th>
       <th></th>
-      <th></th>
-      <th></th>
+      <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @market_keywords.each do |market_keyword| %>
       <tr>
-        <td><%= market_keyword.site %></td>
-        <td><%= market_keyword.parent_id %></td>
-        <td><%= market_keyword.name %></td>
-        <td><%= link_to 'Show', market_keyword %></td>
-        <td><%= link_to 'Edit', edit_market_keyword_path(market_keyword) %></td>
-        <td><%= link_to 'Destroy', market_keyword, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td width="30"><%= market_keyword.id %></td>
+        <td><%= link_to market_keyword.name, market_keyword_path(market_keyword) %></td>
+        <td class="text-right">
+          <%= link_to '修改', edit_market_keyword_path(market_keyword) %> &nbsp;|&nbsp;
+          <%= link_to '删除', market_keyword, method: :delete, data: { confirm: '确定要删除么?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
+<%= will_paginate @market_keywords %>
 <br>
 
-<%= link_to 'New Keyword', new_market_keyword_path %>

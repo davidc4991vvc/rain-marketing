@@ -3,13 +3,13 @@ zh-CN:
   market:
     sites:
       index:
-        title: Sites
+        title: 网站
       show:
-        title: Site
+        title: 网站
       edit:
-        title: Editing Site
+        title: 修改网站
       new:
-        title: New Site
+        title: 添加网站
   flash:
     market:
       sites:

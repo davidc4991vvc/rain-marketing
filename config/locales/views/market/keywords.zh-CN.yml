@@ -3,13 +3,13 @@ zh-CN:
   market:
     keywords:
       index:
-        title: Keywords
+        title: 关键词
       show:
-        title: Keyword
+        title: 关键词
       edit:
-        title: Editing Keyword
+        title: 修改关键词
       new:
-        title: New Keyword
+        title: 添加关键词
   flash:
     market:
       keywords:

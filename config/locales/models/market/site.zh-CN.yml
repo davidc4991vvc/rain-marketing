@@ -1,0 +1,14 @@
+---
+zh-CN:
+  activerecord:
+    models:
+      market/site: 网站
+    attributes:
+      market/site:
+          name: 网站名
+          domain: 域名
+          online_date: 上线时间
+    errors:
+      site: 
+  helpers:
+    site: 

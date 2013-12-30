@@ -1,19 +1,14 @@
-<p id="notice"><%= notice %></p>
+<div class="group-header">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <div class="text-center">
+        <h2><%= @market_keyword.name %></h2>
+        <small class="text-muted">
+          父级关键词：<%= @market_keyword.parent.try(:name) %>
+        </small>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Market site:</strong>
-  <%= @market_keyword.site %>
-</p>
 
-<p>
-  <strong>Parent:</strong>
-  <%= @market_keyword.parent_id %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @market_keyword.name %>
-</p>
-
-<%= link_to 'Edit', edit_market_keyword_path(@market_keyword) %> |
-<%= link_to 'Back', market_keywords_path %>

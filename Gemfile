@@ -21,8 +21,8 @@ gem 'acts-as-taggable-on'
 gem "compass-rails"
 
 # For linux
- gem 'therubyracer', :platform=>:ruby
- gem 'puma'
+# gem 'therubyracer', :platform=>:ruby
+# gem 'puma'
 
 #page caching
 # http://www.rubytutorial.io/page-caching-with-rails-4
