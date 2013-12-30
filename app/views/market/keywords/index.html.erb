@@ -15,7 +15,7 @@
   <tbody>
     <% @market_keywords.each do |market_keyword| %>
       <tr>
-        <td><%= market_keyword.market_site %></td>
+        <td><%= market_keyword.site %></td>
         <td><%= market_keyword.parent_id %></td>
         <td><%= market_keyword.name %></td>
         <td><%= link_to 'Show', market_keyword %></td>
