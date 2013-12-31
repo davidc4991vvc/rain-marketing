@@ -1,14 +1,99 @@
 <div class="group-header">
-  <div class="row">
-    <div class="col-sm-6 col-sm-offset-3">
-      <div class="text-center">
-        <h2><%= @market_keyword.name %></h2>
-        <small class="text-muted">
-          父级关键词：<%= @market_keyword.parent.try(:name) %>
-        </small>
+<div class="row">
+<div class="col-sm-6 col-sm-offset-3">
+<div class="text-center">
+<h2><%= @market_keyword.name %></h2>
+<small class="text-muted">
+父级关键词：<%= @market_keyword.parent.try(:name) %>
+</small>
+</div>
+</div>
+</div>
+</div>
+
+<div class='row'>
+  <div class='col-sm-6'>
+    <div class='row'>
+      <div class='chat'>
+        <div class='col-sm-12'>
+          <div class='box'>
+            <div class='box-header orange-background'>
+              <div class='title'>
+                <i class='icon-comments-alt'></i>
+                Chat
+              </div>
+              <div class='actions'>
+                <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+                </a>
+                
+                <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+                </a>
+              </div>
+            </div>
+            <div class='box-content box-no-padding'>
+              <div class='scrollable' data-scrollable-height='300' data-scrollable-start='bottom'>
+                <ul class='list-unstyled list-hover list-striped'>
+                  <% @baidu_web_result[:record_arr].each do |record|%>
+                  <li class='message'>
+                    <div class='avatar'>
+                      <img alt='Avatar' height='23' src='assets/flatty/avatar.jpg' width='23'>
+                    </div>
+                    <div class='name-and-time'>
+                      <div class='name pull-left'>
+                        <small>
+                          <a class="text-contrast" href="<%= record.url %>"><%= record.title %></a>
+                        </small>
+                      </div>
+                      <div class='time pull-right'>
+                        <small class='date pull-right text-muted'>
+                          <span class='timeago fade has-tooltip' data-placement='top' title='<%= record.updated_date %>'><%= record.updated_date %></span>
+                          <i class='icon-time'></i>
+                        </small>
+                      </div>
+                    </div>
+                    <div class='body'>
+                      <%= record.item_index %><%= record.summary %>
+                    </div>
+                  </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='col-sm-6'>
+    <div class='row'>
+      <div class='col-sm-12'>
+        <div class='box'>
+          <div class='box-header blue-background'>
+            <div class='title'>
+              <div class='icon-envelope-alt'></div>
+              Quick e-mail
+            </div>
+            <div class='actions'>
+              <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+              </a>
+              
+              <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+              </a>
+            </div>
+          </div>
+          <div class='box-content'>
+            <div class='form-group'>
+              <input value="" placeholder="E-mail" class="form-control" name="email" type="text" />
+            </div>
+            <div class='form-group'>
+              <textarea class='form-control wysihtml5' id='body' placeholder='Your message...' rows='5'></textarea>
+            </div>
+            <div class='text-right'>
+              <a class="btn btn-primary" href="#">Send</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-

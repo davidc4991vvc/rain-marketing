@@ -4,12 +4,15 @@ class Market::KeywordsController < Market::ApplicationController
   # GET /market/keywords
   # GET /market/keywords.json
   def index
-    @market_keywords = Market::Keyword.page(params[:page])
+    @market_keywords_count ||= Market::Keyword.all.size
+    @market_keywords_parent_count ||= Market::Keyword.where(parent_id: 0).size
+    @market_keywords = Market::Keyword.search(params[:search]).page(params[:page])
   end
 
   # GET /market/keywords/1
   # GET /market/keywords/1.json
   def show
+    @baidu_web_result = BaiduWeb.search(@market_keyword.name, :per_page => 50, :page_index => 2)
   end
 
   # GET /market/keywords/new

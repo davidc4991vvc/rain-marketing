@@ -45,6 +45,11 @@ gem 'paperclip-qiniu'
 #Wizard
 #gem 'wicked'
 
+#search
+gem 'mechanize'
+gem 'hpricot'
+gem 'iconv'
+gem 'baidu_web'
 
 #I18n
 gem 'rails-i18n', '~> 4.0.0.pre' # For 4.0.x
@@ -56,7 +61,6 @@ gem "htmlentities"
 gem 'slodown'
 
 #Queue
-gem 'mechanize'
 gem 'sidekiq'
 
 #Send Mail

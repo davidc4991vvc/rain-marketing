@@ -7,4 +7,11 @@ class Market::Keyword < ActiveRecord::Base
   attr_accessor :opt1, :opt2
   self.per_page = 50
   
+  def self.search(search)
+    if search
+      where(['name LIKE ?', "%#{search}%"])
+    else
+      scoped
+    end
+  end
 end

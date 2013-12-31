@@ -3,8 +3,18 @@
 <table class="table table-stripped">
   <thead>
     <tr>
-      <th></th>
-      <th colspan="3"></th>
+      <th colspan="2">
+        主关键词总数：<%= @market_keywords_parent_count %>, &nbsp;&nbsp;
+        长尾关键词总数： <%= @market_keywords_count %>
+      </th>
+      <th colspan="2" class="text-right">
+        <%= form_tag market_keywords_path, :method => 'get' do %>
+          <p>
+            <%= text_field_tag :search, params[:search], placeholder: '输入关键词' %>
+            <%= submit_tag "搜索", :name => nil %>
+          </p>
+        <% end %>
+      </th>
     </tr>
   </thead>
 

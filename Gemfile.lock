@@ -40,6 +40,7 @@ GEM
     addressable (2.3.5)
     arel (4.0.1)
     atomic (1.1.14)
+    baidu_web (0.2.5)
     bcrypt-ruby (3.1.2)
     bcrypt-ruby (3.1.2-x86-mingw32)
     better_errors (1.1.0)
@@ -97,6 +98,7 @@ GEM
       railties (>= 3.2, < 5.0)
     fssm (0.2.10)
     hike (1.2.3)
+    hpricot (0.8.6)
     htmlentities (4.3.1)
     hub (1.11.0)
     i18n (0.6.9)
@@ -250,6 +252,7 @@ PLATFORMS
 DEPENDENCIES
   actionpack-page_caching
   acts-as-taggable-on
+  baidu_web
   better_errors
   binding_of_caller
   bootstrap-sass (>= 3.0.0.0)
@@ -264,6 +267,7 @@ DEPENDENCIES
   email_spec
   figaro
   font-awesome-rails
+  hpricot
   htmlentities
   hub
   i18n_yaml_generator
