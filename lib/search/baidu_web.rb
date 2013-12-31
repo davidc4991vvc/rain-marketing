@@ -1,58 +1,65 @@
+#Usage:
+    # $:.unshift(File.dirname(__FILE__))
+    # require 'baidu_web'
+    # require 'cgi'
+    # result = Search::BaiduWeb.search(CGI.escape("游戏"), :per_page => 10, :page_index => 1)
+
+    # result[:record_arr].each do |record|
+    #   puts record.title
+    #   puts record.url
+    #   puts record.summary
+    #   puts record.updated_date
+    #   puts record.item_index
+    #   puts record.cached_url
+    # end
+    # result[:ext_key_arr].each do |ext_key|
+    #  puts ext_key.title
+    #  puts ext_key.url
+    # end
+
 require 'mechanize'
-require 'hpricot'
-require 'open-uri'
-require 'cgi'
+require 'nokogiri'
 require 'iconv'
+require 'open-uri'
 
 module Search
   module BaiduWeb
     class << self
-      def search(key_word, options)
+      def search(key_word, options = {})
         result = {:record_arr => [], :ext_key_arr => [], :source => 'web'}
 
-        @ic2 = Iconv.new('gb2312//IGNORE', 'UTF-8//IGNORE')
-        @key_word = key_word
-        return result if @key_word.blank?
-        #uri parser key word
-        @key_word = CGI.escape(@ic2.iconv(@key_word))
+        ic1 = Iconv.new('UTF-8//IGNORE', 'gb2312//IGNORE')
+        ic2 = Iconv.new('gb2312//IGNORE', 'UTF-8//IGNORE')
+        key_word = key_word
+        return result if key_word.blank?
+        key_word = CGI.escape(ic2.iconv(key_word))
 
         #determine how many records display on one page. (same as www.baidu.com/?<some params>&rn=50)
-        @per_page = options[:per_page]
-        @per_page ||= 50
+        per_page = options[:per_page]
+        per_page ||= 30
 
         #get which page of result. (same as www.baidu.com/?<some params>&pn=0)
-        @page_index = options[:page_index]
-        @page_index ||= 1
+        page_index = options[:page_index]
+        page_index ||= 1
 
         #get the start item index.
-        item_index = (@page_index - 1 ) * @per_page
+        item_index = (page_index - 1 ) * per_page
 
         agent = Mechanize.new
 
-        url = "http://www.baidu.com/s?wd=#{@key_word}&rn=#{@per_page}&pn=#{item_index}"
+        url = "http://www.baidu.com/s?wd=#{key_word}&rn=#{per_page}&pn=#{item_index}"
         #debug: url
         spage = agent.get(url)
         #debug
-        # File.open(File.join(File.dirname(__FILE__), 'baidu_result.html'), "w"){|f| f.write(@ic.iconv(spage.body))}
+        #File.open(File.join(File.dirname(__FILE__), 'baidu_result.html'), "w"){|f| f.write(ic1.iconv(spage.body))}
 
         #doc = Hpricot(@ic.iconv(spage.body))
-        doc = Hpricot(spage.body)
-
-        #- this is hack on linux:
-        #case1:
-        # result_page = @ic.iconv(open("http://www.baidu.com/s?wd=#{@key_word}&rn=#{@per_page}&pn=#{item_index}").read)
-        #case2:
-        # result_page = ""
-        # open("http://www.baidu.com/s?wd=#{@key_word}&rn=#{@per_page}&pn=#{item_index}", "r:utf-8") {|f|
-        #   f.each_line do |line|
-        #      result_page += @ic.iconv(line)
-        #   end
-        # }
+        doc = Nokogiri::HTML(spage.body)
 
         return result if doc.nil?
     
         result[:record_arr] = extract_item(doc, item_index)
-        result[:ext_key_arr] = extract_extension_key(doc)
+        #result[:ext_key_arr] = extract_extension_key(doc)
         #debug
         puts result[:record_arr].size
     
@@ -69,24 +76,13 @@ module Search
           next if res.at("h3").nil?
 
           record = Search::Record.new
-
-          title = res.at("h3").inner_text
-          record.title = title
-          record.url = res.at("h3").at("a").attributes['href'].to_s
-
-          summary = []
-          res.at("td[@class='f']").children.each do |elem|
-            if elem.respond_to?(:attributes) && elem.attributes['href'] =~ /http:\/\/cache.baidu.com/
-              record.cached_url = elem.attributes['href'] 
-              next
-            elsif elem.respond_to?(:attributes) && elem.attributes['class'] == 'g' && elem.to_s =~ /(\d{4}-\d{1,2}-\d{1,2})/
-              record.updated_date = $1
-              next
-            end
-            next if elem.respond_to?(:attributes) && elem.attributes['class'] == 't'
-            summary << elem.inner_text
+          
+          record.title   = res.at("h3").try(:inner_text)
+          record.url     = res.at("h3").at("a").attributes['href'].to_s
+          record.summary = res.at("div[@class='c-abstract']").try(:inner_text)
+          if res.at("div[@class='f13']").try(:inner_text) =~ /(\d{4}-\d{1,2}-\d{1,2})/
+            record.updated_date = begin Date.parse($1) end
           end
-          record.summary = summary.join(' ').gsub(/百度|百度快照|快照/, '')
 
           item_index += 1
           record.item_index = item_index

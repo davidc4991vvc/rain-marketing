@@ -12,7 +12,7 @@ class Market::KeywordsController < Market::ApplicationController
   # GET /market/keywords/1
   # GET /market/keywords/1.json
   def show
-    @baidu_web_result = BaiduWeb.search(@market_keyword.name, :per_page => 50, :page_index => 2)
+    @baidu_web_result = Search::BaiduWeb.search(@market_keyword.name)
   end
 
   # GET /market/keywords/new

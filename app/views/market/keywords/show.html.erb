@@ -20,28 +20,25 @@
             <div class='box-header orange-background'>
               <div class='title'>
                 <i class='icon-comments-alt'></i>
-                Chat
+                百度搜索分析
               </div>
               <div class='actions'>
-                <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
-                </a>
-                
                 <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
                 </a>
               </div>
             </div>
             <div class='box-content box-no-padding'>
-              <div class='scrollable' data-scrollable-height='300' data-scrollable-start='bottom'>
+              <div class='scrollable' data-scrollable-height='800' data-scrollable-start='top'>
                 <ul class='list-unstyled list-hover list-striped'>
                   <% @baidu_web_result[:record_arr].each do |record|%>
                   <li class='message'>
                     <div class='avatar'>
-                      <img alt='Avatar' height='23' src='assets/flatty/avatar.jpg' width='23'>
+                      <i class="fa fa-link"></i><%= record.item_index %>
                     </div>
                     <div class='name-and-time'>
                       <div class='name pull-left'>
                         <small>
-                          <a class="text-contrast" href="<%= record.url %>"><%= record.title %></a>
+                          <a class="text-contrast" href="<%= record.url %>" target="_blank"><%= record.title %></a>
                         </small>
                       </div>
                       <div class='time pull-right'>
@@ -52,7 +49,7 @@
                       </div>
                     </div>
                     <div class='body'>
-                      <%= record.item_index %><%= record.summary %>
+                      <%= record.summary %>
                     </div>
                   </li>
                   <% end %>
@@ -71,7 +68,7 @@
           <div class='box-header blue-background'>
             <div class='title'>
               <div class='icon-envelope-alt'></div>
-              Quick e-mail
+              快速生成软文
             </div>
             <div class='actions'>
               <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
@@ -83,13 +80,13 @@
           </div>
           <div class='box-content'>
             <div class='form-group'>
-              <input value="" placeholder="E-mail" class="form-control" name="email" type="text" />
+              <input value="" placeholder="标题" class="form-control" name="email" type="text" />
             </div>
             <div class='form-group'>
               <textarea class='form-control wysihtml5' id='body' placeholder='Your message...' rows='5'></textarea>
             </div>
             <div class='text-right'>
-              <a class="btn btn-primary" href="#">Send</a>
+              <a class="btn btn-primary" href="#">保存</a>
             </div>
           </div>
         </div>

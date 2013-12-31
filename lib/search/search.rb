@@ -1,3 +1,9 @@
+require File.expand_path('../baidu_web', __FILE__)
+autoload :BaiduWeb, 'baidu_web'
+Dir.glob(File.expand_path('../search/*.rb', __FILE__)).each do |f|
+  require f
+end
+
 module Search
   class Record
     attr_accessor :title, :url, :summary, :updated_date, :item_index, :size, :cached_url
