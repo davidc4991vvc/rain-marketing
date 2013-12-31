@@ -47,9 +47,7 @@ gem 'paperclip-qiniu'
 
 #search
 gem 'mechanize'
-gem 'hpricot'
-gem 'iconv'
-gem 'baidu_web'
+
 
 #I18n
 gem 'rails-i18n', '~> 4.0.0.pre' # For 4.0.x
