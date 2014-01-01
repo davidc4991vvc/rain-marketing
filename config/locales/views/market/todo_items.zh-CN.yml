@@ -1,0 +1,21 @@
+---
+zh-CN:
+  market/todo_items:
+    index:
+      title: 任务
+    show:
+      title: 任务
+    edit:
+      title: 修改任务
+    new:
+      title: 添加任务
+  flash:
+    market:
+      todo_items:
+        create:
+          notice: '%{resource_name} 成功添加.'
+        update:
+          notice: '%{resource_name} 成功修改.'
+        destroy:
+          notice: '%{resource_name} 成功删除.'
+          alert: '%{resource_name} 无法删除.'

@@ -1,0 +1,19 @@
+<%= simple_form_for(@market_todo_item) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :site %>
+    <%= f.input :parent_id %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :priority %>
+    <%= f.input :status %>
+    <%= f.input :assigned_to %>
+    <%= f.input :started_at %>
+    <%= f.input :finished_at %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

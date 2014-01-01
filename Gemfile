@@ -20,9 +20,11 @@ gem 'acts-as-taggable-on'
 #to integrate flatty theme
 gem "compass-rails"
 
+gem 'acts_as_list'
+
 # For linux
-gem 'therubyracer', :platform=>:ruby
-gem 'puma'
+#gem 'therubyracer', :platform=>:ruby
+#gem 'puma'
 
 #page caching
 # http://www.rubytutorial.io/page-caching-with-rails-4
@@ -47,7 +49,7 @@ gem 'paperclip-qiniu'
 
 #search
 gem 'mechanize'
-gem 'iconv'
+#gem 'iconv'
 
 #I18n
 gem 'rails-i18n', '~> 4.0.0.pre' # For 4.0.x

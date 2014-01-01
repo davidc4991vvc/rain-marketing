@@ -4,7 +4,7 @@ RainCms::Application.routes.draw do
   namespace :market do
     resources :keywords
     resources :sites
-
+    resources :todo_items
     get "home/index"
   end
 

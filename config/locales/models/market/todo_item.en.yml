@@ -1,0 +1,22 @@
+---
+en:
+  active_record:
+    models:
+      market:
+        todo_item: Todo item
+    attributes:
+      market:
+        todo_item:
+          site: Site
+          parent_id: Parent
+          title: Title
+          description: Description
+          priority: Priority
+          status: Status
+          assigned_to: Assigned to
+          started_at: Started at
+          finished_at: Finished at
+    errors:
+      todo_item: 
+  helpers:
+    todo_item: 

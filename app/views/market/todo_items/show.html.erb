@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Site:</strong>
+  <%= @market_todo_item.site %>
+</p>
+
+<p>
+  <strong>Parent:</strong>
+  <%= @market_todo_item.parent_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @market_todo_item.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @market_todo_item.description %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @market_todo_item.priority %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @market_todo_item.status %>
+</p>
+
+<p>
+  <strong>Assigned to:</strong>
+  <%= @market_todo_item.assigned_to %>
+</p>
+
+<p>
+  <strong>Started at:</strong>
+  <%= @market_todo_item.started_at %>
+</p>
+
+<p>
+  <strong>Finished at:</strong>
+  <%= @market_todo_item.finished_at %>
+</p>
+
+<%= link_to 'Edit', edit_market_todo_item_path(@market_todo_item) %> |
+<%= link_to 'Back', market_todo_items_path %>

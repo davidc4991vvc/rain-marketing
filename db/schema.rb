@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131229060801) do
+ActiveRecord::Schema.define(version: 20140101091650) do
 
   create_table "admin_channels", force: true do |t|
     t.integer  "user_id"
@@ -80,15 +80,15 @@ ActiveRecord::Schema.define(version: 20131229060801) do
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
 
   create_table "market_keywords", force: true do |t|
-    t.integer  "market_site_id"
+    t.integer  "site_id"
     t.integer  "parent_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "market_keywords", ["market_site_id"], name: "index_market_keywords_on_market_site_id", using: :btree
   add_index "market_keywords", ["parent_id", "name"], name: "index_market_keywords_on_parent_id_and_name", unique: true, using: :btree
+  add_index "market_keywords", ["site_id"], name: "index_market_keywords_on_market_site_id", using: :btree
 
   create_table "market_sites", force: true do |t|
     t.integer  "user_id"
@@ -103,6 +103,22 @@ ActiveRecord::Schema.define(version: 20131229060801) do
   add_index "market_sites", ["user_id", "domain"], name: "index_market_sites_on_user_id_and_domain", unique: true, using: :btree
   add_index "market_sites", ["user_id", "name"], name: "index_market_sites_on_user_id_and_name", unique: true, using: :btree
   add_index "market_sites", ["user_id"], name: "index_market_sites_on_user_id", using: :btree
+
+  create_table "market_todo_items", force: true do |t|
+    t.integer  "site_id"
+    t.integer  "parent_id",   default: 0
+    t.string   "title"
+    t.text     "description"
+    t.integer  "priority",    default: 0
+    t.integer  "status",      default: 0
+    t.integer  "assigned_to", default: 0
+    t.date     "started_at"
+    t.date     "finished_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "market_todo_items", ["site_id"], name: "index_market_todo_items_on_site_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"

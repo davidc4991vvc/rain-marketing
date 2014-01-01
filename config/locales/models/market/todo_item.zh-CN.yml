@@ -1,0 +1,20 @@
+---
+zh-CN:
+  activerecord:
+    models:
+      market/todo_item: 任务
+    attributes:
+      market/todo_item:
+        site: 网站
+        parent_id: 父级
+        title: 标题
+        description: 描述
+        priority: 优先级
+        status: 状态
+        assigned_to: 指派给
+        started_at: 开始时间
+        finished_at: 完成时间
+    errors:
+      todo_item: 任务
+  helpers:
+    todo_item: 任务

@@ -1,15 +1,14 @@
 ---
 zh-CN:
-  market:
-    keywords:
-      index:
-        title: 关键词
-      show:
-        title: 关键词
-      edit:
-        title: 修改关键词
-      new:
-        title: 添加关键词
+  market/keywords:
+    index:
+      title: 关键词
+    show:
+      title: 关键词
+    edit:
+      title: 修改关键词
+    new:
+      title: 添加关键词
   flash:
     market:
       keywords:

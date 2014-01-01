@@ -1,15 +1,14 @@
 ---
 zh-CN:
-  market:
-    sites:
-      index:
-        title: 网站
-      show:
-        title: 网站
-      edit:
-        title: 修改网站
-      new:
-        title: 添加网站
+  market/sites:
+    index:
+      title: 网站
+    show:
+      title: 网站
+    edit:
+      title: 修改网站
+    new:
+      title: 添加网站
   flash:
     market:
       sites:

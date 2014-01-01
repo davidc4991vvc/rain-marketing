@@ -19,7 +19,7 @@
 
 require 'mechanize'
 require 'nokogiri'
-require 'iconv'
+#require 'iconv'
 require 'open-uri'
 
 module Search
