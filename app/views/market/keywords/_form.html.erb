@@ -2,7 +2,7 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :market_site_id, as: :hidden, input_html: {value: @market_site.id }%>
+    <%= f.input :site_id, as: :hidden, input_html: {value: @market_site.id }%>
     <%= f.input :parent_id, as: :hidden, input_html: {value: 0 } %>
     <%= f.input :name %>
     <%= f.input :opt1, placeholder: '包含单词' %> 或

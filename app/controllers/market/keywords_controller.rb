@@ -6,7 +6,7 @@ class Market::KeywordsController < Market::ApplicationController
   def index
     @market_keywords_count ||= Market::Keyword.all.size
     @market_keywords_parent_count ||= Market::Keyword.where(parent_id: 0).size
-    @market_keywords = Market::Keyword.search(params[:search]).page(params[:page])
+    @market_keywords = Market::Keyword.order("updated_at DESC").search(params[:search]).page(params[:page])
   end
 
   # GET /market/keywords/1
