@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140101091650) do
+ActiveRecord::Schema.define(version: 20140102093754) do
 
   create_table "admin_channels", force: true do |t|
     t.integer  "user_id"
@@ -177,5 +177,15 @@ ActiveRecord::Schema.define(version: 20140101091650) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
+
+  create_table "wechats", force: true do |t|
+    t.string   "to_user_name"
+    t.string   "from_user_name"
+    t.string   "msg_type"
+    t.string   "event"
+    t.string   "event_key"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

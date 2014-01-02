@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>To user name:</strong>
+  <%= @wechat.to_user_name %>
+</p>
+
+<p>
+  <strong>From user name:</strong>
+  <%= @wechat.from_user_name %>
+</p>
+
+<p>
+  <strong>Msg type:</strong>
+  <%= @wechat.msg_type %>
+</p>
+
+<p>
+  <strong>Event:</strong>
+  <%= @wechat.event %>
+</p>
+
+<p>
+  <strong>Event key:</strong>
+  <%= @wechat.event_key %>
+</p>
+
+<%= link_to 'Edit', edit_wechat_path(@wechat) %> |
+<%= link_to 'Back', wechats_path %>

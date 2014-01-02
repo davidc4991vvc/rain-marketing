@@ -1,0 +1,16 @@
+---
+en:
+  active_record:
+    models:
+      wechat: Wechat
+    attributes:
+      wechat:
+        to_user_name: To user name
+        from_user_name: From user name
+        msg_type: Msg type
+        event: Event
+        event_key: Event key
+    errors:
+      wechat: 
+  helpers:
+    wechat: 

@@ -1,0 +1,35 @@
+<h1>Listing wechats</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>To user name</th>
+      <th>From user name</th>
+      <th>Msg type</th>
+      <th>Event</th>
+      <th>Event key</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wechats.each do |wechat| %>
+      <tr>
+        <td><%= wechat.to_user_name %></td>
+        <td><%= wechat.from_user_name %></td>
+        <td><%= wechat.msg_type %></td>
+        <td><%= wechat.event %></td>
+        <td><%= wechat.event_key %></td>
+        <td><%= link_to 'Show', wechat %></td>
+        <td><%= link_to 'Edit', edit_wechat_path(wechat) %></td>
+        <td><%= link_to 'Destroy', wechat, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Wechat', new_wechat_path %>
