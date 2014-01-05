@@ -1,0 +1,11 @@
+<%= content_tag_for :li, todo_item do %>
+  <%= form_for todo_item, remote: true do |f| %>
+    <%= f.check_box :status %>
+    <%= f.submit "更新" %>
+    <span class="handle">[drag]</span>
+    <%= link_to h(todo_item.title), todo_item %>
+
+    <%= link_to "(修改)", edit_market_todo_item_path(todo_item) %>
+    <%= link_to "(删除)", todo_item, method: :delete, data: {confirm: "确定要删除?"}, remote: true %>
+  <% end %>
+<% end %>

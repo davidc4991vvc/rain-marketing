@@ -1,19 +1,41 @@
-<%= simple_form_for(@market_todo_item) do |f| %>
-  <%= f.error_notification %>
+<div class='row'>
+  <div class='col-sm-12'>
+    <div class='box'>
+      <div class='box-header red-background'>
+        <div class='title'>
+          <div class='icon-edit'></div>
+          Vertical form
+        </div>
+        <div class='actions'>
+          <a class="btn box-remove btn-xs btn-link" href="#"><i class='icon-remove'></i>
+          </a>
+          
+          <a class="btn box-collapse btn-xs btn-link" href="#"><i></i>
+          </a>
+        </div>
+      </div>
+      <div class='box-content'>          
+        <%= simple_form_for(@market_todo_item, remote: true, html: {class: 'form'} ) do |f| %>
+          <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.association :site %>
-    <%= f.input :parent_id %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.input :priority %>
-    <%= f.input :status %>
-    <%= f.input :assigned_to %>
-    <%= f.input :started_at %>
-    <%= f.input :finished_at %>
-  </div>
+          <div class="form-inputs">
+            <%= f.association :site, selected: @market_site.id %>
+            <%= f.select :parent_id, Market::TodoItem.where("parent_id = 0").map { |r| [r.title, r.id, { class: r.id }] }, include_blank: true %>
+            <%= f.input :title %>
+            <%= f.input :description, :as => :ckeditor, :input_html => { :ckeditor => {:toolbar => 'custom', :height => '600px'} } %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+            <%= f.input :priority %>
+            <%= f.input :status %>
+            <%= f.input :assigned_to %>
+            <%= f.input :started_at %>
+            <%= f.input :finished_at %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, class: 'btn btn-primary btn-lg' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end %>
+</div>

@@ -3,6 +3,7 @@ class CreateMarketTodoItems < ActiveRecord::Migration
     create_table :market_todo_items do |t|
       t.references :site, index: true
       t.integer :parent_id, index: true, default: 0
+      t.integer :position
       t.string :title
       t.text :description
       t.integer :priority, default: 0
