@@ -1,35 +1,42 @@
-<h1>关键词列表</h1>
+<%= render partial: 'layouts/market/market_title', locals: {
+  page_title: '关键词列表', 
+  page_menu: {
+    '采集长尾关键词' => '/market/keywords/new',
+    '返回' => '/market/keywords'}
+  } 
+%>
 
-<table class="table table-stripped">
-  <thead>
-    <tr>
-      <th colspan="2">
-        主关键词总数：<%= @market_keywords_parent_count %>, &nbsp;&nbsp;
-        长尾关键词总数： <%= @market_keywords_count %>
-      </th>
-      <th colspan="2" class="text-right">
-        <%= form_tag market_keywords_path, :method => 'get' do %>
-          <p>
-            <%= text_field_tag :search, params[:search], placeholder: '输入关键词' %>
-            <%= submit_tag "搜索", :name => nil %>
-          </p>
-        <% end %>
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @market_keywords.each do |market_keyword| %>
+<div class='row'>              
+  <table class="table table-stripped table-bordered">
+    <thead>
       <tr>
-        <td width="30"><%= market_keyword.id %></td>
-        <td><%= link_to market_keyword.name, market_keyword_path(market_keyword) %></td>
-        <td class="text-right">
-          <%= link_to '修改', edit_market_keyword_path(market_keyword) %> &nbsp;|&nbsp;
-          <%= link_to '删除', market_keyword, method: :delete, data: { confirm: '确定要删除么?' } %></td>
+        <th colspan="2">
+          主关键词总数：<%= @market_keywords_parent_count %>, &nbsp;&nbsp;
+          长尾关键词总数： <%= @market_keywords_count %>
+        </th>
+        <th colspan="2" class="text-right">
+          <%= form_tag market_keywords_path, :method => 'get' do %>
+            <p>
+              <%= text_field_tag :search, params[:search], placeholder: '输入关键词' %>
+              <%= submit_tag "搜索", :name => nil %>
+            </p>
+          <% end %>
+        </th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= will_paginate @market_keywords %>
-<br>
+    </thead>
 
+    <tbody>
+      <% @market_keywords.each do |market_keyword| %>
+        <tr>
+          <td width="30"><%= market_keyword.id %></td>
+          <td><%= link_to market_keyword.name, market_keyword_path(market_keyword) %></td>
+          <td class="text-right">
+            <%= link_to '修改', edit_market_keyword_path(market_keyword) %> &nbsp;|&nbsp;
+            <%= link_to '删除', market_keyword, method: :delete, data: { confirm: '确定要删除么?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate @market_keywords %>
+  <br>
+</div>

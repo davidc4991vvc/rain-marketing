@@ -1,0 +1,14 @@
+<div class='page-header page-header-with-buttons'>
+  <h1 class='pull-left'>
+    <i class='icon-dashboard'></i>
+    <span><%= page_title %></span>
+  </h1>
+  <div class='pull-right'>
+    <div class='btn-group'>
+      <% page_menu.each_pair do |k, v| %>
+        <a class="btn btn-white" href="<%= v %>"><%= k %></a>
+      <% end %>
+    </div>
+  </div>
+</div>
+<%= render 'layouts/messages' %>

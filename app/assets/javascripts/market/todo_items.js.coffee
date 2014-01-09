@@ -12,11 +12,9 @@ jQuery ->
 
 #todo list update
 jQuery.fn.submitOnCheck = ->
-  #@find('input[type=submit]').remove()
+  @find('input[type=submit]').remove()
   @find('input[type=checkbox]').click ->
     $(this).parent('form').submit()
-    alert('af')
-  this
 
 jQuery ->
   $('.edit_market_todo_item').submitOnCheck()

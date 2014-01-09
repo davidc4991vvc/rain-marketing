@@ -1,8 +1,13 @@
-<h2>管理员登录</h2>
-<%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
-  <%= f.input :email, :autofocus => true %>
-  <%= f.input :password %>
-  <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %>
-  <%= f.button :submit, "登 录", :class => 'btn-primary' %>
-<% end %>
-<%= render "devise/shared/links" %>
+<div class="row">
+  <div class="col-md-2 col-md-offset-5">
+    <h2>管理员登录</h2>
+    <hr/>
+    <%= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f| %>
+      <%= f.input :email, :autofocus => true %>
+      <%= f.input :password, hint: '' %>
+      <%= f.input :remember_me, :as => :boolean, wrapper_html: nil if devise_mapping.rememberable? %>
+      <%= f.button :submit, "登 录", :class => 'btn btn-lg btn-primary', style: 'width: 100%;'%>
+    <% end %>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

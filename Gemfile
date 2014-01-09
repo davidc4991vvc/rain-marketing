@@ -25,8 +25,8 @@ gem 'actionpack-xml_parser'
 gem 'acts_as_list'
 
 # For linux
-gem 'therubyracer', :platform=>:ruby
-gem 'puma'
+#gem 'therubyracer', :platform=>:ruby
+#gem 'puma'
 
 #page caching
 # http://www.rubytutorial.io/page-caching-with-rails-4
