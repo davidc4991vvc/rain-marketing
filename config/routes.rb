@@ -4,7 +4,9 @@ RainCms::Application.routes.draw do
   namespace :market do
     resources :keywords
     resources :sites
-    resources :todo_items
+    resources :todo_items do
+      collection { post :sort}
+    end
     get "home/index"
   end
 
@@ -32,7 +34,8 @@ RainCms::Application.routes.draw do
   match 'choose_site', to: "users#choose_site", via: :get
   
   #routes for front ==============================
-  root :to => "welcome#index"
+  #root :to => "welcome#index"
+  root :to => "market/todo_items#index"
   #match '/:profession/:state_code/:dik/:classify_type/(:action(/:id))' => 
   #  'sanction', 
   #  :constraints => { :dik => /\d{4}.\d{2}.\d{2}/,  

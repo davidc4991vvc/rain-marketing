@@ -1,5 +1,6 @@
 //
-//= require jquery 
+//= require jquery
+//= require jquery.ui.all
 //= require jquery_ujs
 
 //= require flatty/jquery/jquery.min
@@ -9,3 +10,5 @@
 //= require flatty/bootstrap/bootstrap.min
 //= require flatty/plugins/plugins
 //= require flatty/theme
+
+//= require market/todo_items

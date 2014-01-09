@@ -1,3 +1,13 @@
 // Place all the styles related to the market/todo_items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#todo_items .handle {
+  font-size: 12px;
+  color: #777;
+  cursor: move;
+}
+
+.string {
+  width: 100%;
+}
