@@ -1,0 +1,1 @@
+{"xml"=>{"ToUserName"=>"gh_8c24abeff870", "FromUserName"=>"odj_RjhFKHRG45w9Mh8e_vwg7_t8", "CreateTime"=>"1388675286", "MsgType"=>"text", "Content"=>"E", "MsgId"=>"5964314938143459698"}, "signature"=>"5d6ad07f65c0e64ccd423854633df787e142b09e", "timestamp"=>"1388675286", "nonce"=>"1389065154", "action"=>"create", "controller"=>"wechat"}

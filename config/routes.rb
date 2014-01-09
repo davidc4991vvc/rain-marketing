@@ -1,8 +1,6 @@
 RainCms::Application.routes.draw do
-    
-  resources :wechats
-
-  #routes for market ==============================
+ resources :wechat 
+ #routes for market ==============================
   namespace :market do
     resources :keywords
     resources :sites
