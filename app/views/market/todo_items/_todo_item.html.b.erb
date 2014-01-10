@@ -1,4 +1,4 @@
-<%= content_tag_for :li, todo_item do %>
+<%= content_tag_for :li, todo_item, class: 'item' do %>
   <%= form_for todo_item, remote: true do |f| %>
     <label class='check pull-left todo'>
       <%= f.check_box :status %>

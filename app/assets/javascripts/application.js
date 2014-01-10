@@ -1,8 +1,9 @@
 //
 //= require jquery
-//= require jquery.ui.all
+//= require jquery.turbolinks
 //= require jquery_ujs
 
+//= require jquery.ui.all
 //= require flatty/jquery/jquery.min
 //= require flatty/jquery/jquery.mobile.custom.min
 //= require flatty/jquery/jquery-migrate.min
@@ -12,3 +13,5 @@
 //= require flatty/theme
 
 //= require market/todo_items
+
+//= require turbolinks

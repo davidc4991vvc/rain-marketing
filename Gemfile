@@ -8,6 +8,7 @@ gem 'jquery-rails'
 #Use specific version of gem "jquery-rails", "~> 2.3.0" as later version of gem has deleted the ui part.
 gem "jquery-ui-rails"
 gem 'turbolinks'
+gem 'jquery-turbolinks'
 gem 'jbuilder', '~> 1.2'
 gem 'bootstrap-sass', '>= 3.0.0.0'
 gem 'bootstrap-will_paginate'

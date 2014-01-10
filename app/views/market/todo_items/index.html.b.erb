@@ -1,0 +1,84 @@
+<%= render partial: 'layouts/market/market_title', locals: {
+  page_title: '每日网站任务', 
+  page_menu: {
+    '添加任务' => new_market_todo_item_path,
+    '返回' => '/market/todo_items'}
+  } 
+%>
+
+<div class='row'> 
+  <div class='col-sm-12'>
+    <div class='box'>
+      <div class='row todo-list'>
+        <div class='col-sm-12'>
+          <div class='box'>
+            <div class='box-content box-no-padding'>
+              <div class='sortable-container'>
+                <div class='date text-contrast'>近期任务</div>
+         <!--        <ul id="todo_items" class='list-unstyled sortable' data-update-url="<%= sort_market_todo_items_url %>"> -->
+                <ul id="todo_items" class='list-unstyled sortable' data-sortable-axis='y' data-sortable-connect='.sortable' data-update-url="<%= sort_market_todo_items_url %>">
+                  <%= render @market_todo_items %>
+                </ul>
+                <div class='date text-contrast'>往期任务</div>
+                咯咯咯
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- / START - page related files and scripts [optional] -->
+<script>
+  // $(".todo-list .new-todo").live('submit', function(e) {
+  //   var li, todo_name;
+  //   todo_name = $(this).find("#todo_name").val();
+  //   $(this).find("#todo_name").val("");
+  //   if (todo_name.length !== 0) {
+  //     li = $(this).parents(".todo-list").find("li.item").first().clone();
+  //     li.find("input[type='checkbox']").attr("checked", false);
+  //     li.removeClass("important").removeClass("done");
+  //     li.find("label.todo span").text(todo_name);
+  //     $(".todo-list ul").first().prepend(li);
+  //     li.effect("highlight", {}, 500);
+  //   }
+  //   return e.preventDefault();
+  // });
+  
+  // $(".todo-list .actions .remove").live("click", function(e) {
+  //   $(this).tooltip("hide");
+  //   $(this).parents("li").fadeOut(500, function() {
+  //     return $(this).remove();
+  //   });
+  //   e.stopPropagation();
+  //   e.preventDefault();
+  //   return false;
+  // });
+  
+  // $(".todo-list ul").live("sortable", function(e){
+  //   $.post($(this).data('update-url'), $(this).sortable('serialize'))
+  //   alert("sdf");
+  // });
+
+  $(".todo-list .actions .important").live("click", function(e) {
+    $(this).parents("li").toggleClass("important");
+    e.stopPropagation();
+    e.preventDefault();
+    return false;
+  });
+  
+  $(".todo-list .check").live("click", function() {
+    var checkbox;
+    checkbox = $(this).find("input[type='checkbox']");
+    if (checkbox.is(":checked")) {
+      return $(this).parents("li").addClass("done");
+    } else {
+      return $(this).parents("li").removeClass("done");
+    }
+    $(checkbox).parent('form').submit();
+  });
+</script>
+
+<!-- / END - page related files and scripts [optional] -->
